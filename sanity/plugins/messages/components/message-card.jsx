@@ -1,5 +1,5 @@
 import { Stack, Card, Flex, Heading, Text, MenuButton, Menu, MenuItem, Button, MenuDivider } from '@sanity/ui';
-import {EllipsisVerticalIcon, TrashIcon, StarIcon} from '@sanity/icons'
+import { EllipsisVerticalIcon, TrashIcon, StarIcon } from '@sanity/icons'
 import { useCallback, useState } from 'react';
 import MessageDialog from './message-dialog';
 

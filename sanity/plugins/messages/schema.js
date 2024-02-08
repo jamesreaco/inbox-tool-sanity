@@ -9,7 +9,7 @@ export const messagesSchema = {
       title: 'Name',
     },
     {
-      type: 'email',
+      type: 'string',
       name: 'email',
       title: 'Email',
     },
