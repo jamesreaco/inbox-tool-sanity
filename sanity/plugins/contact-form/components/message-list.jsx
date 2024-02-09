@@ -125,15 +125,23 @@ function AllMessages({ messages, deleteMessage, starMessage, readMessage }) {
         borderRadius: '4px'
       }}
     >
-      {messages?.map((message) => (
-        <MessageCard 
-          key={message._id} 
-          message={message}
-          deleteMessage={deleteMessage} 
-          starMessage={starMessage}
-          readMessage={readMessage}
-        />
-      ))}
+      {messages?.length === 0 ? (
+        <Heading style={{ padding: '20px', fontSize: '14px' }}>
+          You have no messages
+        </Heading>
+      ) : (
+        <>
+          {messages?.map((message) => (
+            <MessageCard 
+              key={message._id} 
+              message={message}
+              deleteMessage={deleteMessage} 
+              starMessage={starMessage}
+              readMessage={readMessage}
+            />
+          ))}
+        </>
+      )}
     </Stack>
   )
 }

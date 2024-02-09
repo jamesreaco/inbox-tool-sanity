@@ -1,6 +1,6 @@
-export const messagesSchema = {
+export const message = {
   type: 'document',
-  name: 'messages',
+  name: 'message',
   title: 'Messages',
   fields: [
     {

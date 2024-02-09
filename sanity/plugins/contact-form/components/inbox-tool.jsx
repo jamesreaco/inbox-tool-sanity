@@ -3,7 +3,7 @@ import { ToastProvider, useToast, Spinner, Card, Text, Container, Stack, Flex } 
 import { useListeningQuery } from 'sanity-plugin-utils'
 import MessageList from './message-list';
 
-export default function MessagesTool() {
+export default function InboxTool() {
 
   const toast = useToast()
   const client = useClient({ apiVersion: "2021-06-07" })
@@ -12,7 +12,7 @@ export default function MessagesTool() {
     data: messages, 
     loading, 
     error 
-  } = useListeningQuery(`*[_type == 'messages'] | order(_createdAt desc)`, {
+  } = useListeningQuery(`*[_type == 'message'] | order(_createdAt desc)`, {
     initialValue: [],
   })
 
