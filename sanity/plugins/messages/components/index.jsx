@@ -6,7 +6,7 @@ import MessageList from './message-list';
 export default function MessagesTool() {
 
   const toast = useToast()
-  const client = useClient({ apiVersion: "2024-08-02" })
+  const client = useClient({ apiVersion: "2021-06-07" })
   
   const { 
     data: messages, 

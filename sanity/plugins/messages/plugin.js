@@ -1,6 +1,6 @@
 import { definePlugin } from 'sanity';
 import { messagesSchema } from './schema';
-import MessagesTool from './components/messages-tool';
+import MessagesTool from './components';
 
 const messagesTool = () => {
   return {
