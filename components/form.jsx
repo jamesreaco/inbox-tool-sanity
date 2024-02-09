@@ -15,7 +15,7 @@ export default function Form() {
 
     const mutations = [{
       create: {
-        _id: `message.${generateID()}`,
+        _id: 'message.',
         _type: 'message',
         read: false,
         starred: false,

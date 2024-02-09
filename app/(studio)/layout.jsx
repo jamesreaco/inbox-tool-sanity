@@ -1,7 +1,7 @@
 import '../globals.css'
 
 export const metadata = {
-  title: 'Messages Plugin | Studio',
+  title: 'Inbox Plugin | Studio',
 }
 
 export default function RootLayout({ children }) {
