@@ -1,4 +1,5 @@
 "use client"
+import { generateID } from '@/lib/utils';
 import { useState } from 'react';
 
 export default function Form() {
@@ -9,22 +10,11 @@ export default function Form() {
   const [occupation, setOccupation] = useState('');
   const [message, setMessage] = useState('');
 
-  function generateID() {
-    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var idLength = 22;
-    var id = '';
-    for (var i = 0; i < idLength; i++) {
-      id += characters.charAt(Math.floor(Math.random() * characters.length));
-    }
-    return id;
-  }
-
   async function handleSubmit(e) {
-
-    e.preventDefault();
+    e.preventDefault()
 
     const mutations = [{
-      createOrReplace: {
+      create: {
         _id: `message.${generateID()}`,
         _type: 'messages',
         read: false,
@@ -34,12 +24,12 @@ export default function Form() {
         subject: subject,
         fields: [
           {
-            _key: 'Occupation',
+            _key: generateID(),
             name: 'Occupation',
             value: occupation
           },
           {
-            _key: 'Message',
+            _key: generateID(),
             name: 'Message',
             value: message
           }
@@ -51,24 +41,29 @@ export default function Form() {
 
       const response = await fetch("/api/submit-message", {
         method: "POST",
-        body: JSON.stringify({ mutations: mutations }),
+        body: JSON.stringify({ mutations }),
         headers: { "Content-Type": "application/json" },
       })
 
       if (response.ok) {
-        setEmail('')
-        setName('')
-        setSubject('')
-        setOccupation('')
-        setMessage('')
+        resetUI()
         console.log('Document added successfully:', response)
       }
 
     } catch(error) {
       console.error('Error adding document:', error);
     }
+
   }
-  
+
+  function resetUI() {
+    setEmail('')
+    setName('')
+    setSubject('')
+    setOccupation('')
+    setMessage('')
+  } 
+
   return (
     <div className='mt-[80px] w-[400px] mx-auto'>
       <form

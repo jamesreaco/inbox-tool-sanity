@@ -45,7 +45,7 @@ function DialogHeading({ message }) {
         borderBottom: '1px solid #1b1d26' 
       }}
     >
-      Subject: 
+      Subject: &nbsp;
       <span style={{ fontWeight: '400' }}>
         {subject}
       </span>
