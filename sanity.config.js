@@ -1,6 +1,6 @@
 import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure'
-import { contactFormPlugin } from './sanity/plugins/contact-form/plugin';
+import { inboxPlugin } from './sanity/plugins/contact-form/plugin';
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET
@@ -15,7 +15,7 @@ const config = defineConfig({
   basePath: '/studio',
   plugins: [
     structureTool(),
-    contactFormPlugin()
+    inboxPlugin()
   ],
   useCdn: false
 })

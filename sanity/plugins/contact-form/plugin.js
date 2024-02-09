@@ -12,8 +12,8 @@ const inboxTool = () => {
   }
 }
 
-export const contactFormPlugin = definePlugin({
-  name: 'contact-form-plugin',
+export const inboxPlugin = definePlugin({
+  name: 'inbox-plugin',
   schema: {
     types: [ message ],
   },
