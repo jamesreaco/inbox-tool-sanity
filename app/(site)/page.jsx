@@ -1,6 +1,6 @@
 import Form from "@/components/form";
 
-export default function Home() {
+export default async function Home() {
   return (
     <div>
       <Form />
