@@ -39,11 +39,15 @@ Open your browser and navigate to `http://localhost:3000`. Here you will see a b
 
 To create a document using the Sanity HTTP API requests must be authenticated with an API Token. This token should be kept safe and never exposed to the client and so we make the request in the `/api/submit-message` route handler.
 
+You can learn more about the HTTP API [here](https://www.sanity.io/docs/http-api).
+
 ### Keeping data safe
 
 By default Sanity gives unauthenticated users read access to documents in public datasets. Our `message` document is going to contain personal information that needs to be kept private. To disable this behavior we add a `message.` prefix to the `_id` when defining our `create` mutation in `form.jsx`. This will generate a new, random, unique `_id` such as `message.s4tZYDUyXCCef1YpYu6Js5`. 
 
 The important thing to know here is that documents under a sub-path (i.e. containing a `.` in the `_id`) are not publicly available and can only be read with a Token.
+
+You can learn more about IDs, paths and sub-paths [here](https://www.sanity.io/docs/ids).
 
 ```javascript
 // components/form.jsx
