@@ -1,6 +1,6 @@
 # Inbox Tool
 
-I've been working on a fun little project recently and thought I would share it with the community! A Sanity plugin that lets you view and manage form submissions via a handy Studio Tool. 
+I've been working on a fun little project recently and thought I would share it with the community! A Sanity plugin that lets you view and manage form submissions inside a handy Studio Tool. 
 
 <img src="https://f000.backblazeb2.com/file/jamesrea/Screenshot+2024-02-10+at+1.12.29%E2%80%AFPM.png"/>
 
@@ -14,7 +14,7 @@ I've been working on a fun little project recently and thought I would share it 
 
 ## Installation
 
-To get started, you'll need to clone this GitHub repository locally, open it up in your code editor and then run `npm install` in the terminal to install the required dependencies.
+To give this Studio Tool a try, you'll need to clone this GitHub repository locally, open it up in your code editor and then run `npm install` in the terminal to install the required dependencies.
 
 ## Environment Settings
 
@@ -47,6 +47,7 @@ The important thing to know here is that documents under a sub-path (i.e. contai
 
 ```javascript
 // components/form.jsx
+
 const mutations = [{
   create: {
     _id: 'message.',
