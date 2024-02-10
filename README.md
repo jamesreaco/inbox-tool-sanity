@@ -1,6 +1,16 @@
 # Inbox Tool
 
-Sanity Studio Tool that lets you view and manage form submissions from your website. 
+I've been working on a fun little project recently and thought I would share it with the community! A Sanity plugin that lets you view and manage form submissions via a handy Studio Tool. 
+
+<img src="https://f000.backblazeb2.com/file/jamesrea/Screenshot+2024-02-10+at+1.12.29%E2%80%AFPM.png"/>
+
+## Features ⚡️
+
+- Studio Tool to view submissions.
+- Custom dialog to view a message and all its fields.
+- Star important messages.
+- Delete spam and unwanted messages.
+- New messages are moved out of unread folder once viewed.
 
 ## Installation
 
@@ -17,24 +27,30 @@ NEXT_PUBLIC_SANITY_API_VERSION=""
 SANITY_API_TOKEN=""
 ```
 
-Once you're set up, open your terminal again and run `npm run dev` to start up the development server.
+Once you have added your environment variables, open your terminal again and run `npm run dev` to start the development server.
 
 ## Usage
 
-Once you have started the development server open your browser and navigate to `http://localhost:3000`. Here you will see a basic form which is coming from the `form.jsx` component located in the `components` folder.
+Open your browser and navigate to `http://localhost:3000`. Here you will see a basic form, fill out the fields, hit submit and then navigate to `http://localhost:3000/studio/inbox-tool` to see your form submission.
 
-When the form is submitted all the logic and creation of a new document is handled in `/api/submit-message`. The reason we are doing this inside a route handler and not directly in the `form.jsx` component is because to create a new document using Sanity's HTTP API, you'll need to authenticate each request with an API Token which should never be exposed to the client.
+## Important Details
 
-By default Sanity gives unauthenticated users read access to documents in public datasets. Our `message` document is going to contain private information that needs to be protected. To do this we create our document under a sub-path by adding a `.` to the ID. In our example we add `message.` to the `_id` attribute when defining our `create` mutation which is then used as a prefix for a new, random, unqiue ID. For example, `message.` might generate `message.s4tZYDUyXCCef1YpYu6Js5`. 
+### Creating documents using the HTTP API
 
-The important thing to know here is that when you create a custom `_id`, documents under a sub-path (i.e. containing a . in the ID) are not publicly available.
+To create a document using the Sanity HTTP API requests must be authenticated with an API Token. This token should be kept safe and never exposed to the client and so we make the request in the `/api/submit-message` route handler.
+
+### Keeping data safe
+
+By default Sanity gives unauthenticated users read access to documents in public datasets. Our `message` document is going to contain personal information that needs to be kept private. To disable this behavior we add a `message.` prefix to the `_id` when defining our `create` mutation in `form.jsx`. This will generate a new, random, unique `_id` such as `message.s4tZYDUyXCCef1YpYu6Js5`. 
+
+The important thing to know here is that documents under a sub-path (i.e. containing a `.` in the `_id`) are not publicly available and can only be read with a Token.
 
 ```javascript
 // components/form.jsx
 const mutations = [{
   create: {
     _id: 'message.',
-    _type: 'message',
+    _type: 'message', 
     read: false,
     starred: false,
     name: name,
@@ -55,4 +71,13 @@ const mutations = [{
   }
 }]
 ```
+
+## Author
+
+#### James Rea
+
+- Twitter ([@jamesreaco](https://twitter.com/jamesreaco))
+- Website ([jamesrea.co](https://jamesrea.co))
+
+For business enquiries, you can email me at hello@jamesrea.co.
 
