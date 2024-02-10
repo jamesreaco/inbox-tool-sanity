@@ -1,4 +1,4 @@
-# Inbox Tool
+# Inbox Tool for Sanity Studio
 
 I've been working on a fun little project recently and thought I would share it with the community! A Sanity plugin that lets you view and manage form submissions inside a handy Studio Tool. 
 
