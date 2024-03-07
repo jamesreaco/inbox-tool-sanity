@@ -65,10 +65,10 @@ export default function Form() {
   } 
 
   return (
-    <div className='mt-[80px] w-[400px] mx-auto'>
+    <div className='mt-20 w-96 mx-auto'>
       <form
         onSubmit={handleSubmit}
-        className='flex flex-col justify-center gap-[20px]'
+        className='flex flex-col justify-center gap-5'
       >
         <input 
           type="text" 
